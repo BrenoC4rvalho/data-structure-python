@@ -10,6 +10,7 @@ class OrderVector:
     def push(self, value):
         if self.__last_index == self.__capacity - 1:
             print("OrderVector is full")
+            return
         
         index = 0
         for i in range(self.__last_index + 1):
@@ -23,7 +24,7 @@ class OrderVector:
         
 
         x = self.__last_index 
-        while self.__last_index >= index:
+        while x >= index:
             self.__vector[x + 1] = self.__vector[x]
             x -= 1
 
@@ -78,7 +79,10 @@ vector.push(2)
 print(vector)
 
 # Search element
-vector.binary_search(4)
+a = vector.binary_search(4)
+
+# Print the index of the element
+print(a)
 
 # Remove element
 vector.pop(4)
@@ -88,3 +92,6 @@ print(vector)
 
 # Insert element at the beginning
 vector.push(0)
+
+# Print the vector
+print(vector)

@@ -10,6 +10,7 @@ class UnorderVector:
     def push(self, value):
         if self.__last_index == self.__capacity:
             print("UnorderVector is full")
+            return
         else:
             self.__last_index += 1
             self.__vector[self.__last_index] = value
@@ -18,12 +19,13 @@ class UnorderVector:
         for i in range(self.__last_index + 1):
             if self.__vector[i] == value:
                 return i
-            return -1
+        return -1
 
     def pop(self, value):
         index = self.linear_search(value)
         if index == -1:
             print(f"{value} not found in OrderVector")
+            return
         else:
             for i in range(index, self.__last_index):
                 self.__vector[i] = self.__vector[i + 1]
@@ -52,8 +54,8 @@ vector.push(2)
 print(vector)
 
 # Search element
-vector.linear_search(4)
-
+a = vector.linear_search(5)
+print(a)
 # Remove element
 vector.pop(4)
 
@@ -62,3 +64,6 @@ print(vector)
 
 # Insert element at the beginning
 vector.push(1)
+
+# Print the vector
+print(vector)
